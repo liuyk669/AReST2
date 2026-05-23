@@ -1,0 +1,11 @@
+metric,value
+AUROC,0.9722477666841829
+AUPRC,0.9229096818087487
+Moran_I,0.9368433441749555
+Region_precision,0.7461024498886414
+Region_recall,0.9517045454545454
+Region_Jaccard,0.7188841201716738
+Region_Dice,0.83645443196005
+Region_size,898.0
+Reference_region_size,704.0
+Region_overlap,670.0
