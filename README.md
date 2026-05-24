@@ -31,26 +31,7 @@ This repository is organized into three main parts:
 
 The current release includes processed input and annotation files for the local heme exposure example, together with two synthetic benchmark inputs.
 
-## Simulation Inputs
 
-We considered two representative settings: a single non-convex C-shaped anomalous region and a two-region setting with spatially separated anomalous regions of different perturbation strengths. The corresponding inputs are included as separate folders:
-
-```text
-data/c_shaped_region/
-data/two_separated_regions/
-```
-
-Each simulation folder contains only the files needed to rerun methods, without precomputed scores or output figures:
-
-```text
-counts.mtx.gz
-genes.tsv
-barcodes.tsv
-meta.csv
-dataset_summary.json
-```
-
-`counts.mtx.gz` is a genes-by-spots Matrix Market count matrix. `meta.csv` contains spot barcodes, spatial coordinates, condition labels, replicate labels, and the ground-truth anomaly label.
 
 ## Git LFS
 
