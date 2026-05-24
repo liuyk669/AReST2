@@ -1,70 +1,32 @@
-# AReST2
+# AReST
 
-Minimal reproducibility materials for the GSE182127 AReST example.
+AReST is a spatially weighted neighborhood contrast framework for detecting anomalous regions in comparative spatial transcriptomics data.
 
-The notebook recomputes AReST anomaly scores from the released `.h5ad` file,
-applies permutation max-statistic thresholding, extracts the anomalous region
-with DBSCAN, and reports the score-level and region-level metrics used in the
-paper example.
+Comparative spatial transcriptomics is often used to ask not only which genes change between biological conditions, but also where condition related molecular changes appear within tissue. AReST addresses this problem by estimating spot level anomaly evidence from transcriptional neighborhoods, incorporating spatial proximity, correcting for the global condition prior, and converting positive anomaly evidence into spatially coherent anomalous regions.
 
-## Repository layout
+## Overview
 
-```text
-data/
-  GSE182127_all_samples_aligned_to_GSM5519060_sham_combined.h5ad
-  author_leiden_clusters_heme1000.csv
-notebooks/
-  GSE182127_AReST_reproduction.ipynb
-  gse182127.py
-results/
-  gse182127_reproduction/
-```
+AReST takes as input:
 
-The `.h5ad` file is stored with Git LFS. If it is not downloaded
-automatically, install Git LFS and run:
+- a gene expression matrix,
+- spatial coordinates,
+- condition labels.
 
-```bash
-git lfs pull
-```
+The workflow consists of four main steps:
 
-## Run
+1. Construct transcriptional neighborhoods in expression space.
+2. Compute a spatially weighted local condition enrichment score.
+3. Derive an upper threshold using label permutation.
+4. Apply DBSCAN to significant anomalous spots to obtain anomalous regions.
 
-```bash
-pip install -r requirements.txt
-jupyter notebook notebooks/GSE182127_AReST_reproduction.ipynb
-```
+The detected regions can then be used for downstream biological interpretation, including marker analysis, region level enrichment, and comparison with anatomical or literature supported reference regions.
 
-The notebook uses repository-relative paths, so it can be run from a cloned
-checkout without editing absolute server paths.
+## Repository organization
 
-## Main settings
+This repository is organized into three main parts:
 
-```text
-K_expr = 80
-Gaussian bandwidth quantile = 0.60
-permutations = 1000
-alpha = 0.05
-DBSCAN eps = median sixth-nearest-neighbor distance among significant spots
-DBSCAN min_samples = 7
-minimum retained cluster size = 20
-```
+- `data/`, which contains processed data used in the manuscript, including real spatial transcriptomics data and simulation related files .
+- `notebooks/`, which contains reproduction notebooks and helper code for running AReST analyses.
+- `results/`, which contains reproduced outputs, including anomaly scores, detected regions, metric summaries, and representative figures.
 
-The reference region is defined from the author-provided Leiden clusters 10
-and 12 in `author_leiden_clusters_heme1000.csv`.
-
-## Expected output
-
-The executed notebook should reproduce the included result files under
-`results/gse182127_reproduction/`. The key values are:
-
-```text
-significant spots = 1121
-DBSCAN region size = 898
-overlap with Leiden 10/12 reference = 670 / 704
-precision = 0.7461
-recall = 0.9517
-Jaccard index = 0.7189
-AUROC = 0.9722
-AUPRC = 0.9229
-Moran's I = 0.9489
-```
+Additional datasets, benchmark scripts, and reproduction modules will be added in future updates.
