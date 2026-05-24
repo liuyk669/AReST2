@@ -1,0 +1,82 @@
+{
+  "scenario": "regular_square_standard_cshape_3v3_splatter_scatterdecoy380_eff145_v30",
+  "description": "Regular square background with four shared tissue domains and one standard connected C-shaped lesion. Baseline counts are generated from GSE182127 control+sham Splatter calibration as one pooled batch. Target has only a localized standard C-shaped lesion, while reference has randomly scattered matched expression decoy spots using the same lesion gene program. This preserves expression confusion without creating a target-side spatial false block.",
+  "template_name": "regular_square_template_48_3v3",
+  "n_ref_spots": 4800,
+  "n_target_spots": 4800,
+  "n_genes": 2000,
+  "n_truth_positive_target": 564,
+  "n_nuisance_positive_target": 0,
+  "reference_label": "reference",
+  "target_label": "target",
+  "reference_replicates": [
+    "reference_rep1",
+    "reference_rep2",
+    "reference_rep3"
+  ],
+  "target_replicates": [
+    "target_rep1",
+    "target_rep2",
+    "target_rep3"
+  ],
+  "scenario_notes": {
+    "template_name": "regular_square_template_48_3v3",
+    "n_reference_replicates": 3,
+    "n_target_replicates": 3,
+    "spots_per_replicate": 1600,
+    "n_total_spots": 9600,
+    "n_genes": 2000,
+    "core_n_per_target_replicate": 188,
+    "halo_n_per_target_replicate": 211,
+    "nuisance_n_per_target_replicate": 198,
+    "truth_domains": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
+    "shape_note": "clean_target_c_with_scattered_reference_matched_expression_decoy",
+    "calibration_run": "control_sham",
+    "batch_assignment_note": "single Splatter batch pool split into 6 replicate blocks; batch is not condition-nested",
+    "matched_decoy_note": "reference replicates carry 380 randomly scattered matched expression decoy spots per replicate using the same lesion gene program as the target C; target truth remains a clean standard C with stronger eff145 signal and no target-side decoy",
+    "splatter_seed": 2601,
+    "baseline_batch_cells": [
+      9600
+    ],
+    "baseline_manifest": {
+      "params_rds": "/home/u2021082/simulate/splatter_gse182127_calibration_20260420_v1/results/calibration/control_sham/control_sham_splat_params.rds",
+      "outdir": "/home/u2021082/simulate/synth_trial_20260421_v5/cache/regular_square_standard_cshape_3v3_splatter_scatterdecoy380_eff145_v30/raw_splatter",
+      "n_genes": 2000,
+      "batch_cells": [
+        9600
+      ],
+      "seed": 2601,
+      "n_rows": 2000,
+      "n_cols": 9600,
+      "batch_levels": "Batch1"
+    },
+    "ppc_observed_mean_lib_size": 14985.9227,
+    "ppc_simulated_mean_lib_size": 15663.3056,
+    "ppc_observed_pc1_sd": 9.6141,
+    "ppc_simulated_pc1_sd": 4.3152,
+    "gene_block_sizes": {
+      "domain_A": 110,
+      "domain_B": 110,
+      "domain_C": 110,
+      "domain_D": 110,
+      "domain_upper_mix": 70,
+      "domain_lower_mix": 70,
+      "core_up": 240,
+      "core_down": 120,
+      "halo_up": 110,
+      "upper_arm": 60,
+      "lower_arm": 60,
+      "left_wall": 60,
+      "decoy_core": 70,
+      "decoy_ring": 70,
+      "right_band": 70,
+      "global_target": 90
+    }
+  },
+  "module_name": "run_regular_square_standard_cshape_3v3_splatter_scatterdecoy380_eff145_v30"
+}
