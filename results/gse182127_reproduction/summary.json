@@ -4,8 +4,6 @@
     "n_pc":30,
     "k_expr":80,
     "sigma_quantile":0.6,
-    "spatial_k":6,
-    "spatial_iters":1,
     "n_perm":1000,
     "alpha":0.05,
     "seed":0

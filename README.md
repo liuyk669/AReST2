@@ -13,10 +13,9 @@ paper example.
 data/
   GSE182127_all_samples_aligned_to_GSM5519060_sham_combined.h5ad
   author_leiden_clusters_heme1000.csv
-src/arest_repro/
-  gse182127.py
 notebooks/
   GSE182127_AReST_reproduction.ipynb
+  gse182127.py
 results/
   gse182127_reproduction/
 ```
@@ -43,7 +42,6 @@ checkout without editing absolute server paths.
 ```text
 K_expr = 80
 Gaussian bandwidth quantile = 0.60
-spatial averaging k = 6
 permutations = 1000
 alpha = 0.05
 DBSCAN eps = median sixth-nearest-neighbor distance among significant spots
