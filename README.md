@@ -66,5 +66,5 @@ recall = 0.9517
 Jaccard index = 0.7189
 AUROC = 0.9722
 AUPRC = 0.9229
-Moran's I = 0.9368
+Moran's I = 0.9489
 ```

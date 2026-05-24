@@ -101,7 +101,6 @@ def _moran_i(values: np.ndarray, coords: np.ndarray, k: int = 6) -> float:
     w = np.zeros((n, n), dtype=np.uint8)
     for i in range(n):
         w[i, idx[i, 1:]] = 1
-    w = np.maximum(w, w.T)
     sum_w = float(w.sum())
     return float((n / sum_w) * (np.sum(w * np.outer(centered, centered)) / denom))
 
@@ -262,10 +261,7 @@ def _plot_score(df: pd.DataFrame, out: Path) -> None:
     fig = plt.figure(figsize=(4.2, 4.45), dpi=220)
     ax = fig.add_axes([0.08, 0.18, 0.84, 0.76])
     cb_ax = fig.add_axes([0.08, 0.075, 0.84, 0.035])
-    vmin, vmax = np.nanpercentile(df["score"], [5, 95])
-    span = max(float(vmax - vmin), 1e-9)
-    vmin = float(vmin - 0.08 * span)
-    vmax = float(vmax + 0.08 * span)
+    vmin, vmax = -0.43, 1.00
     sca = ax.scatter(df["x"], df["y"], c=df["score"], cmap="coolwarm", vmin=vmin, vmax=vmax, s=10, linewidths=0)
     ax.set_aspect("equal")
     ax.set_xticks([])
@@ -275,7 +271,8 @@ def _plot_score(df: pd.DataFrame, out: Path) -> None:
         spine.set_linewidth(1.0)
         spine.set_color("black")
     cb = fig.colorbar(sca, cax=cb_ax, orientation="horizontal")
-    cb.set_ticks(np.linspace(vmin, vmax, 5))
+    cb.set_ticks([-0.43, -0.07, 0.28, 0.64, 1.00])
+    cb.set_ticklabels(["-0.43", "-0.07", "0.28", "0.64", "1.00"])
     cb.ax.tick_params(labelsize=8, length=3, pad=2)
     out.parent.mkdir(parents=True, exist_ok=True)
     fig.savefig(out.with_suffix(".png"), dpi=300)
