@@ -29,9 +29,6 @@ This repository is organized into three main parts:
 - `notebooks/`, which contains reproduction notebooks and helper code for running AReST analyses.
 - `results/`, which contains reproduced outputs, including anomaly scores, detected regions, metric summaries, and representative figures.
 
-The current release includes processed input and annotation files for the local heme exposure example, together with two synthetic benchmark inputs.
-
-
 
 ## Git LFS
 
