@@ -12,4 +12,21 @@ For analyses involving multiple tissue sections or biological replicates, spatia
 
 - STalign: https://github.com/JEFworks-Lab/STalign
 
-Additional processed inputs, benchmark scripts, and reproduction modules will be added in future updates.
+The synthetic benchmark inputs are provided in:
+
+```text
+c_shaped_region/
+two_separated_regions/
+```
+
+These folders contain input files only; precomputed scores, detected regions, metric tables, and figures are not included for the simulation benchmarks.
+
+Please clone the repository with Git LFS enabled before running notebooks that require large processed files:
+
+```bash
+git clone https://github.com/liuyk669/AReST.git
+cd AReST
+git lfs pull
+```
+
+The compressed simulation matrices are stored directly in git and do not require Git LFS.

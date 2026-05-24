@@ -35,8 +35,8 @@ This repository is organized into three main parts:
 The processed `.h5ad` file is stored with Git LFS. Please clone the repository with Git LFS enabled before running notebooks that require large processed files:
 
 ```bash
-git clone https://github.com/liuyk669/AReST2.git
-cd AReST2
+git clone https://github.com/liuyk669/AReST.git
+cd AReST
 git lfs pull
 ```
 
